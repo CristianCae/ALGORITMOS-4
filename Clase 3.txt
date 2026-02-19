@@ -1,0 +1,93 @@
+print("__________________________________________________________________")
+# invertir String
+# hola -> aloh
+
+saludar = "Hola"
+
+def invertir(s):
+    if len(s) <= 1:
+        return s
+    return invertir(s[1:]) + s[0]
+
+print(invertir(saludar))
+
+print("_________________________________________________________________")
+
+# Palíndromo
+
+def es_palindromo(s):
+    if len(s) <= 1:
+        return True
+    
+    if s[0] != s[-1]:
+        return False
+    
+    return es_palindromo(s[1:-1])
+
+
+palabra = input("Ingrese la palabra que desee: ")
+
+if es_palindromo(palabra):
+    print("Es un palíndromo")
+else:
+    print("No es un palíndromo")
+
+print("___________________________________________________________________")
+
+# Cuantas veces se repite un caracter un texto
+
+def contar(s, c):
+    if len(s) == 0:
+        return 0
+    
+    if s[0] == c:
+        return 1 + contar(s[1:], c)
+    else:
+        return contar(s[1:], c)
+    
+texto = "algoritmos y programacionn 4"
+print(contar(texto, "a"))
+
+print("________________________________________________________________")
+
+# calcular logitud y decir cuantos nodos hay en la lista pero recursivo
+
+class Nodo:
+    def __init__(self, dato):
+        self.dato = dato
+        self.siguiente = None
+    
+class Lista:
+    def __init__(self):
+            self.cabeza = None
+
+    def agregar(dato):
+        nodo = Nodo(dato)
+        if self.cabeza == None:
+            self,cabeza = Nodo
+        else:
+            actual = self.cabeza
+            while actual.siguiente:
+                actual = actual.siguiente
+            actual.siguiente = nodo
+
+
+    def contar_nodo(self):
+        return self._contar_nodos_recursivos (self.cabeza)
+    
+    def _contar_nodos_recursivos(self, nodo):
+        if nodo is None:
+            return 0
+        return 1 + self._contar_nodos_recursivos(nodo.siguiente)
+    
+    print("_______________________________________________________________")
+
+    # metodo para buscar un dato en esa lista
+
+    def buscar_dato(self, nodo, dato):
+        if nodo is None:
+            return False
+        elif nodo.dato == dato:
+            return True
+        return self.buscar_dato(nodo.siguiente,dato)
+
