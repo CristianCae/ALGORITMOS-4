@@ -1,0 +1,78 @@
+def suma_naturales(n):
+    if n == 0:
+        return 0
+    return n + suma_naturales(n - 1)
+
+def potencia(a, b):
+    if b == 0:
+        return 1
+    return a * potencia(a, b - 1)
+
+def contar_digitos(n):
+    if n < 10:
+        return 1
+    return 1 + contar_digitos(n // 10)
+
+def suma_digitos(n):
+    if n == 0:
+        return 0
+    return n % 10 + suma_digitos(n // 10)
+
+
+
+def suma_digitos(n):
+    if n == 0:
+        return 0
+    return n % 10 + suma_digitos(n // 10)
+
+
+def invertir_numero(n, invertido=0):
+    if n == 0:
+        return invertido
+    return invertir_numero(n // 10, invertido * 10 + n % 10)
+
+
+
+def max_lista(lista):
+    if len(lista) == 1:
+        return lista[0]
+    mayor = max_lista(lista[1:])
+    if lista[0] > mayor:
+        return lista[0]
+    return mayor
+
+
+def buscar(lista, x):
+    if not lista:
+        return False
+    if lista[0] == x:
+        return True
+    return buscar(lista[1:], x)
+
+
+def producto_lista(lista):
+    if len(lista) == 1:
+        return lista[0]
+    return lista[0] * producto_lista(lista[1:])
+
+
+def decimal_binario(n):
+    if n == 0:
+        return ""
+    return decimal_binario(n // 2) + str(n % 2)
+
+
+def suma_pares(lista):
+    if not lista:
+        return 0
+    if lista[0] % 2 == 0:
+        return lista[0] + suma_pares(lista[1:])
+    return suma_pares(lista[1:])
+
+
+def eliminar_elemento(lista, x):
+    if not lista:
+        return []
+    if lista[0] == x:
+        return eliminar_elemento(lista[1:], x)
+    return [lista[0]] + eliminar_elemento(lista[1:], x)
